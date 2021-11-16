@@ -1,33 +1,24 @@
 
 const { ListBucketsCommand, S3Client } = require('@aws-sdk/client-s3');
 const { mockClient } = require('aws-sdk-client-mock');
-const { Service } = require('../src/service');
 const assert = require('assert');
 
 const mock = mockClient(S3Client);
 
 describe('two', () => {
-  /** @type Service */
-  let service;
+  let client;
 
   beforeEach(() => {
     mock.reset();
-    service = new Service();
+    client = new S3Client();
   });
 
   it('should work', async () => {
     mock.on(ListBucketsCommand).resolves({});
 
-    const result = await service.getBuckets();
+    const result = await client.send(new ListBucketsCommand());
+
     assert.deepEqual(result, {});
-  });
-
-  it('should fail', async () => {
-    mock.on(ListBucketsCommand).rejects(new Error('err'));
-
-    await assert.rejects(async () => {
-      await service.getBuckets();
-    })
   });
 
 });
