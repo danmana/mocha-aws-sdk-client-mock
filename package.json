@@ -1,0 +1,26 @@
+{
+  "name": "mocha-aws-sdk-client-mock",
+  "version": "1.0.0",
+  "description": "Demo of errors when running multiple mocha tests with aws-sdk-client-mock",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests/*Test.js",
+    "mocha": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danmana/mocha-aws-sdk-client-mock.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danmana/mocha-aws-sdk-client-mock/issues"
+  },
+  "homepage": "https://github.com/danmana/mocha-aws-sdk-client-mock#readme",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.41.0",
+    "assert": "^2.0.0",
+    "aws-sdk-client-mock": "^0.5.6",
+    "mocha": "^9.1.3"
+  }
+}
